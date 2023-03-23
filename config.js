@@ -6,7 +6,7 @@ function getComputerChoice() {
     return choices[randomNumber];
 }
 
-let computerSelection = getComputerChoice(); // Podia jogar a funcao direto em playRound()?
+
 let controlInput = true;
 
 // This can be a function?
@@ -24,11 +24,11 @@ while (controlInput) {
     }
 }
 
-console.log(computerSelection);
+console.log(getComputerChoice());
 console.log(playerSelection);
 
 function playRound(computerSelection, playerSelection) {
-    computerSelection = computerSelection;
+    computerSelection = getComputerChoice();
     playerSelection = playerSelection;
 
     if (computerSelection == playerSelection) {
@@ -54,4 +54,15 @@ function playRound(computerSelection, playerSelection) {
     }
 }
 
-console.log(playRound(computerSelection, playerSelection));
+console.log(playRound(getComputerChoice(), playerSelection));
+
+// function game(playRound) {
+
+//     playRound = playRound(computerSelection, playerSelection);
+
+//     for (let index = 5; index >= 1 ; index--) {
+//         return playRound;
+//     }
+// }
+
+// console.log(game(playRound));
