@@ -24,8 +24,8 @@ function getPlayerChoice() {
 
 
 function playRound() {
-    computerSelection = getComputerChoice();
-    playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice();
+    let playerSelection = getPlayerChoice();
 
     if (computerSelection == playerSelection) {
         return "It's a tie!";
@@ -50,15 +50,11 @@ function playRound() {
     }
 }
 
-console.log(playRound());
+function game() {
+    for (let index = 5; index > 1; index--) {
+        console.log(playRound());
+    }
+    return playRound();
+}
 
-// function game(playRound) {
-
-//     playRound = playRound(computerSelection, playerSelection);
-
-//     for (let index = 5; index >= 1 ; index--) {
-//         return playRound;
-//     }
-// }
-
-// console.log(game(playRound));
+game();
