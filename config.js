@@ -1,40 +1,36 @@
 let choices = ["rock", "paper", "scissors"];
 
-let randomNumber = Math.floor(Math.random() * choices.length);
 
 function getComputerChoice() {
+    let randomNumber = Math.floor(Math.random() * choices.length);
     return choices[randomNumber];
 }
 
 
-let controlInput = true;
+function getPlayerChoice() {
+    let playerInput = prompt("Rock, Paper or Scissors?", "").toLowerCase();
+    let controlInput = true;
 
-// This can be a function?
-let playerSelection = prompt("Rock, Paper or Scissors?", "").toLowerCase();
-
-
-while (controlInput) {
-    if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
-
-        playerSelection = prompt("Rock, Paper or Scissors?", "").toLowerCase();
+    while (controlInput) { // procurar forma de usar o playerInput como controle
+        if (playerInput !== "rock" && playerInput !== "paper" && playerInput !== "scissors") { // Aqui posso usar choices para comparar (funcoes arrays)
+            playerInput = prompt("Rock, Paper or Scissors?", "").toLowerCase();
+        }
+        else {
+            controlInput = false;
+        }
     }
-    else {
-        playerSelection = playerSelection;
-        controlInput = false;
-    }
+    return playerInput;
 }
 
-console.log(getComputerChoice());
-console.log(playerSelection);
 
-function playRound(computerSelection, playerSelection) {
+function playRound() {
     computerSelection = getComputerChoice();
-    playerSelection = playerSelection;
+    playerSelection = getPlayerChoice();
 
     if (computerSelection == playerSelection) {
         return "It's a tie!";
     }
-    else if (computerSelection === "rock" && playerSelection === "scissors") {
+    else if (computerSelection === "rock" && playerSelection === "scissors") { // tirar elses
         return "You Lose! Rock beats Scissors";
     }
     else if (computerSelection === "rock" && playerSelection === "paper") {
@@ -54,7 +50,7 @@ function playRound(computerSelection, playerSelection) {
     }
 }
 
-console.log(playRound(getComputerChoice(), playerSelection));
+console.log(playRound());
 
 // function game(playRound) {
 
