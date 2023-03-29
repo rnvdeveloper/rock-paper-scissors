@@ -29,23 +29,18 @@ const getPlayerChoice = () => {
 const playRound = () => {
     const computerChoice = getComputerChoice();
     const playerChoice = getPlayerChoice();
-
     const messageForTie = "It's a tie!";
     const messageForPlayerWin = `You win, ${playerChoice} beats ${computerChoice}!`;
     const messageForPlayerDefeat = `You Lose, ${computerChoice} beats ${playerChoice}!`;
-
-    const tieRound = playerChoice === computerChoice;
-    // Aqui a ideia inicial era incluir criar um objeto e incluir o tieRound, mas não consegui construir a lógica.
-    const playerWins =
-        (playerChoice === "rock" && computerChoice === "scissors") ||
-        (playerChoice === "paper" && computerChoice === "rock") ||
-        (playerChoice === "scissors" && computerChoice === "paper");
-
-    if (tieRound) {
-        return messageForTie;
+    const roundPossibleResults = {
+        tieRound: playerChoice === computerChoice,
+        playerWins: (playerChoice === "rock" && computerChoice === "scissors") ||
+            (playerChoice === "paper" && computerChoice === "rock") ||
+            (playerChoice === "scissors" && computerChoice === "paper")
     }
 
-    if (playerWins) {
+    if (roundPossibleResults.tieRound) return messageForTie;
+    if (roundPossibleResults.playerWins) {
         userScore++;
         return messageForPlayerWin;
     } else {
@@ -68,4 +63,3 @@ const playRound = () => {
     if (userScore > computerScore) return console.log(messagePlayerWinner);
     if (userScore < computerScore) return console.log(messagePlayerLoser);
 })(5);
-
