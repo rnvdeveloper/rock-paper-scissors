@@ -1,3 +1,5 @@
+'use strict'
+
 const choices = ["rock", "paper", "scissors"];
 let computerScore = 0;
 let userScore = 0;
@@ -20,7 +22,7 @@ const getComputerChoice = () => {
 };
 
 const getPlayerChoice = () => {
-    playerInput = prompt("Rock, Paper or Scissors?").toLowerCase();
+    let playerInput = prompt("Rock, Paper or Scissors?").toLowerCase();
     while (!choices.includes(playerInput))
         playerInput = prompt("Rock, Paper or Scissors?").toLowerCase();
     return playerInput;
