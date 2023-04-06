@@ -22,7 +22,7 @@ const getComputerChoice = () => {
 };
 
 const getPlayerChoice = () => {
-    let playerInput = prompt("Rock, Paper or Scissors?").toLowerCase();
+    //let playerInput = prompt("Rock, Paper or Scissors?").toLowerCase();
     while (!choices.includes(playerInput))
         playerInput = prompt("Rock, Paper or Scissors?").toLowerCase();
     return playerInput;
